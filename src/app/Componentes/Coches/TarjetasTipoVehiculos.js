@@ -173,7 +173,7 @@ export default function TarjetasTipoVehiculo() {
                     </div>
 
                     {/* COLUMNA DERECHA: EL NUEVO CONTENEDOR DE FOTOS DINÁMICAS (Ocupa 7 columnas) */}
-                    <div className="hidden lg:block lg:col-span-7 relative w-full h-[480px]">
+                    <div className="hidden lg:block lg:col-span-7 relative w-full h-120">
                         
                         {/* Contenedor estilizado con curvas y sombra premium */}
                         <div className="w-full h-full relative rounded-[2.5rem] overflow-hidden bg-[#f2f1ed] border border-gray-100 shadow-2xl">
@@ -200,7 +200,7 @@ export default function TarjetasTipoVehiculo() {
                             </AnimatePresence>
                             
                             {/* Un degradado decorativo inferior */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#09092d]/20 via-transparent to-transparent pointer-events-none" />
+                            <div className="absolute inset-0 bg-linear-to-t from-[#09092d]/20 via-transparent to-transparent pointer-events-none" />
                         </div>
 
                         {/* Silueta decorativa trasera de color salmón calzada perfectamente */}

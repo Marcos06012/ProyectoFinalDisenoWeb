@@ -17,7 +17,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
     return (
         <>
             <motion.nav
-                className="bg-[#09092d] w-64 h-screen text-white fixed top-0 left-0 z-50 p-6 shadow-2xl border-r border-[#393781]/30"
+                className="bg-[#09092d] w-full sm:w-64 h-screen text-white fixed top-0 left-0 z-50 p-6 shadow-2xl border-r border-[#393781]/30"
                 initial={false}
                 animate={isOpen ? "open" : "closed"}
                 variants={sidebarVariants}
