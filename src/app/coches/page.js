@@ -1,8 +1,11 @@
+import TarjetasTipoVehiculo from "../Componentes/Coches/TarjetasTipoVehiculos";
+import Hero from "../Componentes/Coches/Hero";
+
 export default function coches() {
     return (
-        <main className="p-10">
-            <h1 className="text-4xl font-bold">Coches y Traslados</h1>
-            <p>Descubre nuestras opciones de transporte para hacer tu viaje más cómodo.</p>
+        <main className="min-h-screen bg-white">
+            <Hero/>            
+            <TarjetasTipoVehiculo />
         </main>
     );
 }

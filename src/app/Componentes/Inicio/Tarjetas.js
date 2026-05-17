@@ -13,12 +13,12 @@ const containerVariants = {
 
 const itemVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
 };
 
 export default function Tarjetas() {
     return (
-        <section className="py-15 mb-20 bg-white rounded-3xl">
+        <section className="py-15 mb-20 bg-white rounded-3xl mt-25">
             <motion.div 
                 initial="hidden"
                 whileInView="visible"
@@ -26,9 +26,11 @@ export default function Tarjetas() {
                 variants={containerVariants}
                 className="max-w-6xl mx-auto"
             >
-                <h2 className="text-4xl md:text-5xl font-black text-[#09092d] text-center mb-16">
+                <motion.h2 
+                variants={itemVariants}
+                className="text-4xl md:text-5xl font-black text-[#09092d] text-center mb-16">
                     ¿Por qué elegir <span className="text-gray-400">Star</span><span className="text-[#f4bba4]">Fly</span>?
-                </h2>
+                </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     

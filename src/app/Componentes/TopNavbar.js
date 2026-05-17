@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Menu } from "lucide-react";
+import { Menu, User, Heart  } from "lucide-react";
 import Link from "next/link";
 
 
@@ -11,7 +11,7 @@ export default function TopNavbar({ setIsOpen, IsOpen }) {
 
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-40 bg-[#09092d]/90 backdrop-blur border-b border-black/5">
+        <header className="fixed top-0 left-0 right-0 z-40 bg-[#09092d] backdrop-blur border-b border-black/5">
             <div className="h-20 px-4 flex items-center">
                 <motion.button
                     type="button"
@@ -24,6 +24,21 @@ export default function TopNavbar({ setIsOpen, IsOpen }) {
 
                 <Link href="/" className=" p-5 text-2xl font-black text-white">
                     Star<span className="text-[#f4bba4]">Fly</span>
+                </Link>
+
+
+                <Link
+                    href="/mi-perfil"
+                    className="gap-2 rounded-2xl px-3 py-2 text-white hover:bg-blue-950 transition absolute right-4 top-1/2 -translate-y-1/2"
+                >
+                    <User size={20} />
+                </Link>
+
+                <Link
+                    href="/favoritos"
+                    className="gap-2 rounded-2xl px-3 py-2 text-white hover:bg-blue-950 transition absolute right-16 top-1/2 -translate-y-1/2"
+                >
+                    <Heart size={20} />
                 </Link>
 
             </div>

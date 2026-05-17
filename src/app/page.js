@@ -1,6 +1,7 @@
 import Hero from "./Componentes/Inicio/Hero";
 import Tarjetas from "./Componentes/Inicio/Tarjetas";
-import Footer from "./Componentes/Footer";
+import ExperienciasUsuarios from "./Componentes/Inicio/ExperienciasUsuarios";
+
 
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Hero />
       <Tarjetas />
-      <Footer />
+      <ExperienciasUsuarios />
       </main>
 
       );
