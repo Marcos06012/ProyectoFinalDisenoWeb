@@ -11,52 +11,68 @@ const DESTINOS = [
 
 export default function PaisesDestinoAlternativo() {
     return (
-        <section className="w-11/12 mx-auto my-16 space-y-24">
-            <div className="text-center mb-16">
-                <h2 className="text-4xl font-extrabold tracking-tight text-gray-900">Destinos Exclusivos</h2>
-                <div className="h-1 w-20 bg-[#f4bba4] mx-auto mt-4 rounded-full" />
+        
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16 md:my-24 space-y-20 md:space-y-28">
+            
+            {/* ENCABEZADO */}
+            <div className="text-center mb-12 md:mb-16">
+                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl">
+                    Destinos Exclusivos
+                </h2>
+                <div className="h-1.5 w-16 bg-[#f4bba4] mx-auto mt-4 rounded-full" />
             </div>
 
+            {/* SECCIONES DE PAÍSES */}
             {DESTINOS.map((destino, index) => (
-                /* Este contenedor intermedio absorbe el desplazamiento lateral de la animación */
                 <div key={index} className="overflow-visible"> 
                     <motion.div
-                        initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
+                        initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }} 
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ 
-                            once: false, 
-                            amount: 0.2,
-                            margin: "0px 0px -50px 0px" // Evita que se active antes de tiempo
+                            once: true, 
+                            amount: 0.15, 
+                            margin: "0px 0px -80px 0px"
                         }}
                         transition={{ 
-                            duration: 0.8, 
-                            ease: [0.25, 1, 0.5, 1] 
+                            duration: 0.7, 
+                            ease: [0.215, 0.610, 0.355, 1.000] 
                         }}
-                        className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-12`}
+                        className={`flex flex-col ${
+                            index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                        } items-center gap-8 lg:gap-16`} 
                     >
-                        {/* Imagen */}
-                        <div className="w-full md:w-1/2 relative group">
-                            <div className="absolute -inset-4 bg-gray-50 rounded-3xl -z-10 group-hover:bg-[#f4bba4]/10 transition-colors duration-500" />
-                            <div className="relative h-100 w-full overflow-hidden rounded-2xl shadow-2xl">
+                        {/* Contenedor Imagen */}
+                        <div className="w-full lg:w-1/2 relative group">
+                            {/* Efecto Aura Trasera Suavizado */}
+                            <div className="absolute -inset-3 bg-gray-50 rounded-3xl -z-10 group-hover:bg-[#f4bba4]/8 transition-colors duration-500" />
+                            
+                            <div className="relative h-80 sm:h-80 lg:h-87.5 w-full overflow-hidden rounded-2xl shadow-xl md:shadow-2xl">
                                 <Image
                                     src={destino.img}
                                     alt={destino.nombre}
                                     fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    quality={90}
+                                    className="object-cover transition-transform duration-700 group-hover:scale-103"
+                                    sizes="(max-w: 1024px) 100vw, 45vw"
                                 />
                             </div>
                         </div>
 
-                        {/* Texto */}
-                        <div className="w-full md:w-1/2 space-y-4 px-4 text-center md:text-left">
-                            <span className="text-[#f4bba4] font-bold tracking-widest uppercase text-sm">Destino 0{index + 1}</span>
-                            <h3 className="text-3xl font-bold text-gray-800">{destino.nombre}</h3>
-                            <p className="text-lg text-gray-600 leading-relaxed">
+                        {/* Contenedor Texto */}
+                        <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left px-2 sm:px-6 lg:px-0">
+                            <span className="text-[#f4bba4] font-bold tracking-widest uppercase text-xs md:text-sm block">
+                                Destino 0{index + 1}
+                            </span>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 tracking-tight">
+                                {destino.nombre}
+                            </h3>
+                            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
                                 {destino.desc}
                             </p>
-                            <button className="group flex items-center gap-2 font-semibold text-gray-900 hover:text-[#f4bba4] transition-colors mx-auto md:mx-0">
-                                Explorar Guía
-                                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            
+                            <button className="group inline-flex items-center gap-2 font-semibold text-gray-900 hover:text-[#f4bba4] transition-colors mt-2 cursor-pointer text-sm sm:text-base">
+                                <span>Explorar Guía</span>
+                                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                             </button>
                         </div>
                     </motion.div>

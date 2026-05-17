@@ -10,9 +10,6 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="es">
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </head>
             {/* 1. min-h-screen asegura que la página ocupe, al menos, toda la altura de la pantalla */}
             {/* 2. flex flex-col nos permite organizar elementos verticalmente */}
             <body className="bg-white min-h-screen flex flex-col">
@@ -20,10 +17,8 @@ export default function RootLayout({ children }) {
                 <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
                 
                 {/* 3. flex-grow hace que el contenido principal 'empuje' el footer hacia abajo */}
-                <main className=" grow pt-24">
-                    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                        {children}
-                    </div>
+                <main className=" grow">
+                    {children}
                 </main>
                 
                 <Footer />
