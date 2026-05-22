@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Hero() {
     return (
         <section className="relative w-full bg-white pt-24 pb-16 overflow-hidden md:py-24 lg:py-32">
-            <div className="max-w-7xl mx-auto mt-20 px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16 w-full">
+            <div className="max-w-7xl mx-auto mt-13 px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16 w-full">
 
                 {/* Lado Izquierdo: Texto */}
                 <motion.div
@@ -45,7 +45,7 @@ export default function Hero() {
                     className="relative w-full max-w-md lg:max-w-none mx-auto mt-8 lg:mt-0"
                 >
                     {/* Imagen Principal con marco asimétrico */}
-                    <div className="relative h-[280px] sm:h-[360px] lg:h-[440px] w-full rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl border-4 md:border-[12px] border-white">
+                    <div className="relative h-70 sm:h-90 lg:h-110 w-full rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl border-4 md:border-12 border-white">
                         <Image
                             src="/img/HotelDeLujo.png"
                             alt="Hotel de lujo"
@@ -98,7 +98,7 @@ export default function Hero() {
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute -bottom-8 -left-6 z-20 hidden lg:block"
                     >
-                        <div className="relative w-[180px] h-[115px] rounded-[1.5rem] overflow-hidden border-4 border-white shadow-xl">
+                        <div className="relative w-45 h-28.75 rounded-[1.5rem] overflow-hidden border-4 border-white shadow-xl">
                             <Image
                                 src="/img/CuartoDeLujo.png"
                                 alt="Cuarto de lujo"
@@ -107,7 +107,7 @@ export default function Hero() {
                                 sizes="180px"
                                 className="object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
                         </div>
                     </motion.div>
 
@@ -117,7 +117,7 @@ export default function Hero() {
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
                         className="absolute -bottom-8 -right-6 z-20 hidden lg:block"
                     >
-                        <div className="relative w-[180px] h-[115px] rounded-[1.5rem] overflow-hidden border-4 border-white shadow-xl">
+                        <div className="relative w-45 h-28.75 rounded-[1.5rem] overflow-hidden border-4 border-white shadow-xl">
                             <Image
                                 src="/img/AmenidadDeLujo.png"
                                 alt="Amenidad de lujo"
@@ -126,7 +126,7 @@ export default function Hero() {
                                 sizes="180px"
                                 className="object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
                         </div>
                     </motion.div>
                 </motion.div>

@@ -19,7 +19,7 @@ const itemVariants = {
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[90vh] lg:min-h-screen pt-24 pb-12 flex flex-col items-center justify-center text-center overflow-hidden bg-[#09092d]">
+        <section className="relative min-h-screen lg:min-h-screen pt-24 pb-12 flex flex-col items-center justify-center text-center overflow-hidden bg-[#09092d]">
 
             {/* IMAGEN DE FONDO */}
             <motion.div
@@ -39,7 +39,7 @@ export default function Hero() {
                 />
             </motion.div>
 
-            <div className="absolute inset-0 bg-gradient-to-b from-[#09092d]/80 via-[#09092d]/60 to-transparent z-10"></div>
+            <div className="absolute inset-0 bg-linear-to-b from-[#09092d]/80 via-[#09092d]/60 to-transparent z-10"></div>
 
             {/* CONTENIDO PRINCIPAL */}
             <motion.div

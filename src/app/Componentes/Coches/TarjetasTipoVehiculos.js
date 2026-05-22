@@ -9,7 +9,7 @@ const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.05 } // Animación un poco más ágil para listas fluidas
+        transition: { staggerChildren: 0.05 }
     }
 };
 
@@ -54,7 +54,7 @@ export default function TarjetasTipoVehiculo() {
                 {/* ESTRUCTURA MAESTRA EN GRID */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
                     
-                    {/* COLUMNA IZQUIERDA: Tarjetas apiladas (Ocupa 5 columnas en pantallas grandes) */}
+                    {/* COLUMNA IZQUIERDA: Tarjetas apiladas */}
                     <div className="flex flex-col gap-3.5 w-full lg:col-span-5 max-w-md mx-auto lg:max-w-none">
 
                         {/* Tarjeta 1: Autos Sedanes */}
@@ -109,7 +109,7 @@ export default function TarjetasTipoVehiculo() {
                             <div className="w-11 h-11 md:w-12 md:h-12 shrink-0 bg-[#09092d] group-hover:bg-[#f4bba4] rounded-xl flex items-center justify-center transition-all duration-500 shadow-md">
                                 <Star size={20} className="text-[#f4bba4] group-hover:text-[#09092d] transition-colors duration-500" />
                             </div>
-                            <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "privado" ? "text-white" : "text-[#09092d]"}`}>
+                            <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "privado" ? "text-[#f4bba4]" : "text-[#09092d]"}`}>
                                 Traslado Privado
                             </h3>
                         </motion.div>
@@ -128,7 +128,7 @@ export default function TarjetasTipoVehiculo() {
                             <div className="w-11 h-11 md:w-12 md:h-12 shrink-0 bg-[#09092d] group-hover:bg-[#f4bba4] rounded-xl flex items-center justify-center transition-all duration-500 shadow-md">
                                 <Bus size={20} className="text-[#f4bba4] group-hover:text-[#09092d] transition-colors duration-500" />
                             </div>
-                            <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "van" ? "text-white" : "text-[#09092d]"}`}>
+                            <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "van" ? "text-[#f4bba4]" : "text-[#09092d]"}`}>
                                 Vans & Shuttles
                             </h3>
                         </motion.div>
@@ -147,7 +147,7 @@ export default function TarjetasTipoVehiculo() {
                             <div className="w-11 h-11 md:w-12 md:h-12 shrink-0 bg-[#09092d] group-hover:bg-[#f4bba4] rounded-xl flex items-center justify-center transition-all duration-500 shadow-md">
                                 <Zap size={20} className="text-[#f4bba4] group-hover:text-[#09092d] transition-colors duration-500" />
                             </div>
-                            <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "electric" ? "text-white" : "text-[#09092d]"}`}>
+                            <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "electric" ? "text-[#f4bba4]" : "text-[#09092d]"}`}>
                                 Eco Eléctricos
                             </h3>
                         </motion.div>
@@ -166,23 +166,19 @@ export default function TarjetasTipoVehiculo() {
                             <div className="w-11 h-11 md:w-12 md:h-12 shrink-0 bg-[#09092d] group-hover:bg-[#f4bba4] rounded-xl flex items-center justify-center transition-all duration-500 shadow-md">
                                 <Mountain size={20} className="text-[#f4bba4] group-hover:text-[#09092d] transition-colors duration-500" />
                             </div>
-                            <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "offroad" ? "text-white" : "text-[#09092d]"}`}>
+                            <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "offroad" ? "text-[#f4bba4]" : "text-[#09092d]"}`}>
                                 4x4
                             </h3>
                         </motion.div>
                     </div>
 
-                    {/* COLUMNA DERECHA: VISOR DE FOTOS DINÁMICAS (Ocupa 7 columnas en lg) */}
-                    
+                    {/* COLUMNA DERECHA: VISOR DE FOTOS DINÁMICAS */}
                     <div className=" lg:block lg:col-span-7 relative w-full h-75 sm:h-100 lg:h-115">
-                        
-                        {/* Contenedor principal con curvas suaves */}
                         <div className="w-full h-full relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-[#f2f1ed] border border-gray-100 shadow-xl">
-                            
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={idActivo}
-                                    initial={{ opacity: 0, scale: 1.01 }} // Suavizado para evitar brincos en el zoom estándar
+                                    initial={{ opacity: 0, scale: 1.01 }} 
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.99 }}
                                     transition={{ duration: 0.25, ease: "easeInOut" }}
@@ -192,15 +188,13 @@ export default function TarjetasTipoVehiculo() {
                                         src={IMAGENES_VEHICULOS[idActivo]}
                                         alt="Visualización de flota StarFly"
                                         fill
-                                        quality={90} // El 90% es óptimo en producción para evitar lags de renderizado al 100% de zoom
+                                        quality={90}
                                         className="object-cover object-center"
                                         sizes="(max-w-1024px) 100vw, 45vw"
                                         priority
                                     />
                                 </motion.div>
                             </AnimatePresence>
-                            
-                            {/* Gradiente sutil */}
                             <div className="absolute inset-0 bg-linear-to-t from-[#09092d]/15 via-transparent to-transparent pointer-events-none" />
                         </div>
                     </div>

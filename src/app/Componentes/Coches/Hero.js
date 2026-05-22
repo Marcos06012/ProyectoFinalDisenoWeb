@@ -29,7 +29,7 @@ const itemVariants = {
 
 export default function Hero() {
     return (
-        <section className="relative overflow-hidden bg-[#09092d] pt-24 pb-12 md:pt-32 md:pb-20 min-h-[90vh] flex items-center">
+        <section className="relative overflow-hidden bg-[#09092d] pt-35 pb-12 md:pt-32 md:pb-20 min-h-screen flex items-center">
             
             {/* Fondo decorativo */}
             <div className="absolute inset-0 opacity-15 pointer-events-none">
@@ -107,7 +107,7 @@ export default function Hero() {
                                 src="/img/FotoCarros2.png"
                                 alt="Garage de Carros - StarFly"
                                 fill
-                                quality={90} // Ajuste óptimo para evitar caídas de rendimiento en el zoom de Chrome
+                                quality={90}
                                 priority
                                 className="object-cover object-center transition-transform duration-700 hover:scale-105"
                                 sizes="(max-w: 768px) 100vw, (max-w: 1024px) 50vw, 35vw"
