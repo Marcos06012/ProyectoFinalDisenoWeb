@@ -13,7 +13,7 @@ export default function Hero() {
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transparent
+                    // CORREGIDO: Se eliminó el atributo "transparent" que causaba el error en la consola
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="z-10 text-center lg:text-left max-w-xl mx-auto lg:max-w-none"
                 >

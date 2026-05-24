@@ -23,13 +23,13 @@ const itemVariants = {
 
 export default function BuscadorVehiculos() {
     return (
-        <section className="w-full max-w-6xl mx-auto px-4 md:px-6 my-12">
+        <section className="w-full max-w-6xl mx-auto px-4 md:px-6 my-12 shadow-2xl shadow-gray-200 rounded-[2rem]">
             <motion.div 
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
-                className="bg-white/70 backdrop-blur-md border border-gray-100 rounded-[2rem] p-4 md:p-6 shadow-2xl shadow-gray-200/40"
+                className="bg-white/70 w-full max-w-6xl rounded-[2rem] p-4 md:p-6 shadow-4xl shadow-gray-200/40"
             >
                 <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
                     

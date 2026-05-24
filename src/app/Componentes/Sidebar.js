@@ -56,10 +56,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                         className={`flex w-full items-center gap-3 py-3 px-4 rounded-xl transition-all ${activeItem === "Coches" ? "bg-[#393781]" : "text-gray-400 hover:bg-[#1e1e3f]"}`}>
                         <Car size={24} /> Coches y Traslados
                     </Link>
-                    <Link href="/experiencias" onClick={() => { setActiveItem("Experiencias"); setIsOpen(false); }}
-                        className={`flex w-full items-center gap-3 py-3 px-4 rounded-xl transition-all ${activeItem === "Experiencias" ? "bg-[#393781]" : "text-gray-400 hover:bg-[#1e1e3f]"}`}>
-                        <Sparkles size={24} /> Experiencias
-                    </Link>
+                    
                 </nav>
 
                 <div className="border-t border-[#393781]/50 my-6"></div>

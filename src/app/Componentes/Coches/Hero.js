@@ -54,7 +54,7 @@ export default function Hero() {
                             variants={itemVariants}
                             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 backdrop-blur-md text-[#f4bba4] text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] border border-white/10 mb-5"
                         >
-                            ✦ StarFly Mobility
+                            StarFly Mobility
                         </motion.span>
 
                         {/* Título */}

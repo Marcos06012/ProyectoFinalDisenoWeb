@@ -21,7 +21,7 @@ const itemVariants = {
     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
 };
 
-export default function TarjetasCarros() {
+export default function MarcasCarros() {
     return (
         <section className="py-20 bg-radial from-gray-50 to-white overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 md:px-6">

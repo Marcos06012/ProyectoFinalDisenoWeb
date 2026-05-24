@@ -8,7 +8,6 @@ export default function coches() {
         <main className="min-h-screen bg-white">
             <Hero/>   
             <BuscadorVehiculos />
-
             <TarjetasTipoVehiculo />
             <MarcasCarros />
 
