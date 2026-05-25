@@ -57,7 +57,7 @@ export default function BarraBusqueda() {
 
             {/* Tags de búsqueda rápida */}
             <div className="flex justify-center gap-6 mt-6">
-                {['Cerca de la playa', 'Desayuno incluido', 'Cancelación gratuita'].map((tag) => (
+                {["Cerca de la playa", "Desayuno incluido", "Cancelación gratuita"].map((tag) => (
                     <span key={tag} className="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200 pb-1 hover:text-[#f4bba4] hover:border-[#f4bba4] cursor-pointer transition-colors">
                         {tag}
                     </span>

@@ -1,67 +1,67 @@
-'use client';;
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+"use client";;
+import React, { useEffect, useState, useCallback, useMemo } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const TestimonialCard = React.memo(({ testimonial, index, cardClassName = '', avatarClassName = '' }) => {
+const TestimonialCard = React.memo(({ testimonial, index, cardClassName = "", avatarClassName = "" }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const gradients = [
-    'from-pink-500 via-purple-500 to-orange-400',
-    'from-blue-500 via-teal-500 to-green-400',
-    'from-purple-500 via-pink-500 to-red-400',
-    'from-indigo-500 via-blue-500 to-cyan-400',
-    'from-orange-500 via-red-500 to-pink-400',
-    'from-emerald-500 via-blue-500 to-purple-400',
-    'from-rose-500 via-fuchsia-500 to-indigo-400',
-    'from-amber-500 via-orange-500 to-red-400',
+    "from-pink-500 via-purple-500 to-orange-400",
+    "from-blue-500 via-teal-500 to-green-400",
+    "from-purple-500 via-pink-500 to-red-400",
+    "from-indigo-500 via-blue-500 to-cyan-400",
+    "from-orange-500 via-red-500 to-pink-400",
+    "from-emerald-500 via-blue-500 to-purple-400",
+    "from-rose-500 via-fuchsia-500 to-indigo-400",
+    "from-amber-500 via-orange-500 to-red-400",
   ];
 
   const gradientClass = gradients[index % gradients.length];
 
   return (
     <div
-      className='w-full mb-4 shrink-0'
+      className="w-full mb-4 shrink-0"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}>
       <Card
-        className={`transition-all duration-300 pointer-events-none relative overflow-hidden ${isHovered ? 'text-white shadow-2xl border-transparent' : ''
+        className={`transition-all duration-300 pointer-events-none relative overflow-hidden ${isHovered ? "text-white shadow-2xl border-transparent" : ""
           } ${cardClassName}`}>
         {isHovered && (
           <div
             className={`absolute inset-0 bg-linear-to-b ${gradientClass} z-0`}
             style={{
               maskImage:
-                'linear-gradient(to bottom, transparent 40%, black 100%)',
+                "linear-gradient(to bottom, transparent 40%, black 100%)",
               WebkitMaskImage:
-                'linear-gradient(to bottom, transparent 40%, black 100%)',
+                "linear-gradient(to bottom, transparent 40%, black 100%)",
             }} />
         )}
 
-        <CardContent className='p-4 md:p-6 relative z-10'>
+        <CardContent className="p-4 md:p-6 relative z-10">
           <p
-            className='text-sm md:text-base mb-4 leading-relaxed transition-colors duration-300 text-neutral-800 dark:text-neutral-200'>
+            className="text-sm md:text-base mb-4 leading-relaxed transition-colors duration-300 text-neutral-800 dark:text-neutral-200">
             "{testimonial.review}"
           </p>
 
-          <div className='flex items-center space-x-3'>
+          <div className="flex items-center space-x-3">
             <Avatar className={`w-8 md:w-10 h-8 md:h-10 ${avatarClassName}`}>
               <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
               <AvatarFallback>
                 {testimonial.name
-                  .split(' ')
+                  .split(" ")
                   .map((n) => n[0])
-                  .join('')}
+                  .join("")}
               </AvatarFallback>
             </Avatar>
-            <div className='min-w-0'>
+            <div className="min-w-0">
               <p
-                className={`font-semibold text-xs md:text-sm ${isHovered ? 'text-white' : ''
+                className={`font-semibold text-xs md:text-sm ${isHovered ? "text-white" : ""
                   }`}>
                 {testimonial.name}
               </p>
               <p
-                className={`text-xs ${isHovered ? 'text-white/80' : 'text-muted-foreground'
+                className={`text-xs ${isHovered ? "text-white/80" : "text-muted-foreground"
                   }`}>
                 {testimonial.handle}
               </p>
@@ -73,19 +73,19 @@ const TestimonialCard = React.memo(({ testimonial, index, cardClassName = '', av
   );
 });
 
-TestimonialCard.displayName = 'TestimonialCard';
+TestimonialCard.displayName = "TestimonialCard";
 
 const KineticTestimonial = ({
   testimonials = [],
-  className = '',
-  cardClassName = '',
-  avatarClassName = '',
+  className = "",
+  cardClassName = "",
+  avatarClassName = "",
   desktopColumns = 6,
   tabletColumns = 3,
   mobileColumns = 2,
   speed = 1,
-  title = '',
-  subtitle = '',
+  title = "",
+  subtitle = "",
 }) => {
   const [actualMobileColumns, setActualMobileColumns] = useState(mobileColumns);
 
@@ -100,8 +100,8 @@ const KineticTestimonial = ({
     };
 
     updateColumns();
-    window.addEventListener('resize', updateColumns);
-    return () => window.removeEventListener('resize', updateColumns);
+    window.addEventListener("resize", updateColumns);
+    return () => window.removeEventListener("resize", updateColumns);
   }, [mobileColumns]);
 
   const createColumns = useCallback((numColumns) => {
@@ -150,10 +150,10 @@ const KineticTestimonial = ({
     return (
       <div
         key={`${prefix}-${colIndex}`}
-        className='flex-1 overflow-hidden relative testimonial-column'
+        className="flex-1 overflow-hidden relative testimonial-column"
         style={{ height: `${containerHeight}px` }}>
         <div
-          className={`flex flex-col ${moveUp ? 'animate-scroll-up' : 'animate-scroll-down'
+          className={`flex flex-col ${moveUp ? "animate-scroll-up" : "animate-scroll-down"
             }`}
           style={{
             animationDuration: `${animationDuration}s`,
@@ -176,16 +176,16 @@ const KineticTestimonial = ({
     className={`bg-white transition-colors duration-300 ${className}`}
   >
     <div
-      className='relative w-full text-gray-900 flex flex-col items-center overflow-hidden px-4 md:px-6 pt-0' 
+      className="relative w-full text-gray-900 flex flex-col items-center overflow-hidden px-4 md:px-6 pt-0" 
     >
       {/* Títulos internos del componente */}
       {title && (
-        <h2 className='text-2xl md:text-4xl font-bold text-center mb-2 bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'>
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-2 bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
           {title}
         </h2>
       )}
       {subtitle && (
-        <p className='text-gray-600 mb-4 text-center w-full max-w-2xl px-4 text-sm'>
+        <p className="text-gray-600 mb-4 text-center w-full max-w-2xl px-4 text-sm">
           {subtitle}
         </p>
       )}
@@ -193,41 +193,41 @@ const KineticTestimonial = ({
       {testimonials && testimonials.length > 0 && (
         <>
           {/* VISTA DESKTOP XL */}
-          <div className='hidden xl:flex gap-4 w-full max-w-7xl overflow-hidden relative mx-4 mt-0'>
-            <div className='absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-white to-transparent z-10 pointer-events-none'></div>
-            <div className='absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-white to-transparent z-10 pointer-events-none'></div>
+          <div className="hidden xl:flex gap-4 w-full max-w-7xl overflow-hidden relative mx-4 mt-0">
+            <div className="absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-white to-transparent z-10 pointer-events-none"></div>
             {desktopColumnsData.map((columnTestimonials, colIndex) =>
-              renderColumn(columnTestimonials, colIndex, 'desktop', 4000))}
+              renderColumn(columnTestimonials, colIndex, "desktop", 4000))}
           </div>
 
           {/* VISTA LG */}
-          <div className='hidden lg:flex xl:hidden gap-4 w-full max-w-6xl overflow-hidden relative mx-4 mt-0'>
-            <div className='absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-white to-transparent z-10 pointer-events-none'></div>
+          <div className="hidden lg:flex xl:hidden gap-4 w-full max-w-6xl overflow-hidden relative mx-4 mt-0">
+            <div className="absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-white to-transparent z-10 pointer-events-none"></div>
             {createColumns(Math.max(desktopColumns - 1, 3)).map((columnTestimonials, colIndex) =>
-              renderColumn(columnTestimonials, colIndex, 'five', 4000))}
+              renderColumn(columnTestimonials, colIndex, "five", 4000))}
           </div>
 
           {/* VISTA MD */}
-          <div className='hidden md:flex lg:hidden gap-4 w-full max-w-5xl overflow-hidden relative mx-4 mt-0'>
-            <div className='absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-white to-transparent z-10 pointer-events-none'></div>
+          <div className="hidden md:flex lg:hidden gap-4 w-full max-w-5xl overflow-hidden relative mx-4 mt-0">
+            <div className="absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-white to-transparent z-10 pointer-events-none"></div>
             {createColumns(Math.max(desktopColumns - 2, 2)).map((columnTestimonials, colIndex) =>
-              renderColumn(columnTestimonials, colIndex, 'four', 4000))}
+              renderColumn(columnTestimonials, colIndex, "four", 4000))}
           </div>
 
           {/* VISTA SM */}
-          <div className='hidden sm:flex md:hidden gap-4 w-full max-w-4xl overflow-hidden relative mx-4 mt-0'>
-            <div className='absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-white to-transparent z-10 pointer-events-none'></div>
+          <div className="hidden sm:flex md:hidden gap-4 w-full max-w-4xl overflow-hidden relative mx-4 mt-0">
+            <div className="absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-white to-transparent z-10 pointer-events-none"></div>
             {tabletColumnsData.map((columnTestimonials, colIndex) =>
-              renderColumn(columnTestimonials, colIndex, 'tablet', 1000))}
+              renderColumn(columnTestimonials, colIndex, "tablet", 1000))}
           </div>
 
           {/* VISTA MÓVIL: AJUSTE EXCLUSIVO AQUÍ */}
-          <div className='sm:hidden flex gap-3 w-full overflow-hidden relative px-4 mt-0 pt-0'> 
-            <div className='absolute top-0 left-0 right-0 h-8 bg-linear-to-b from-white to-transparent z-10 pointer-events-none'></div>
-            <div className='absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-white to-transparent z-10 pointer-events-none'></div>
+          <div className="sm:hidden flex gap-3 w-full overflow-hidden relative px-4 mt-0 pt-0"> 
+            <div className="absolute top-0 left-0 right-0 h-8 bg-linear-to-b from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-white to-transparent z-10 pointer-events-none"></div>
 
             {mobileColumnsData.map((columnTestimonials, colIndex) =>
-              renderColumn(columnTestimonials, colIndex, 'mobile', 800))}
+              renderColumn(columnTestimonials, colIndex, "mobile", 800))}
           </div>
         </>
       )}

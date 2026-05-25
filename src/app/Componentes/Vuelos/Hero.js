@@ -4,15 +4,13 @@ import { motion } from "framer-motion";
 import { Search, MapPin, Calendar, PlaneTakeoff, Armchair, Coffee, ArrowRightLeft } from "lucide-react";
 
 const fadeIn = {
-    hidden: { opacity: 0, y: 15 }, // Reducido el salto a 15px para transiciones más limpias
+    hidden: { opacity: 0, y: 15 }, 
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
 export default function Hero() {
     return (
-        /* CORRECCIÓN: pt-24 pb-12 lg:pt-32 lg:pb-16 para que respire de manera óptima 
-           en cualquier monitor sin forzar un scroll falso. */
-        <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-12 lg:pt-32 lg:pb-16 bg-white w-full">
+        <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-30 pb-12 lg:pt-32 lg:pb-16 bg-white w-full">
 
             {/* 1. DECORACIÓN DE FONDO */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
@@ -34,7 +32,6 @@ export default function Hero() {
                         <span>EXPERIENCIA 100% PERSONALIZABLE</span>
                     </motion.div>
 
-                    {/* CORRECCIÓN: Ajustado de text-7xl a text-5xl md:text-6xl para evitar superposiciones gigantes */}
                     <motion.h1 variants={fadeIn} className="text-4xl sm:text-5xl md:text-6xl font-black text-[#09092d] leading-[1.1] tracking-tight">
                         Vuela como <br />
                         <span className="text-transparent bg-clip-text bg-linear-to-r from-[#09092d] to-[#f4bba4]">
@@ -63,7 +60,6 @@ export default function Hero() {
                     </div>
 
                     {/* TARJETA FLOTANTE 1 */}
-                    {/* CORRECCIÓN: Animación suavizada (de -20 a -8) para que no baile bruscamente al 100% de zoom */}
                     <motion.div
                         animate={{ y: [0, -8, 0] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -135,7 +131,7 @@ export default function Hero() {
                                     </div>
                                 </div>
 
-                                {/* Botón de Intercambio Creativo (Ahora flota elegantemente al lado) */}
+                                {/* Botón de Intercambio Creativo */}
                                 <motion.button
                                     whileHover={{ rotate: 180 }}
                                     transition={{ duration: 0.3 }}

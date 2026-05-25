@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
                 <TopNavbar setIsOpen={setIsOpen} />
                 <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
                 
-                {/* 3. flex-grow hace que el contenido principal 'empuje' el footer hacia abajo */}
+                {/* 3. flex-grow hace que el contenido principal "empuje" el footer hacia abajo */}
                 <main className=" grow">
                     {children}
                 </main>

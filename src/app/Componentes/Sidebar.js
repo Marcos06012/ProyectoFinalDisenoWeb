@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Home, Plane, Hotel, Car, Sparkles, User, X } from "lucide-react";
 import Link from "next/link";
 
-// Solo recibimos las props, NO declaramos useState aquí
 export default function Sidebar({ isOpen, setIsOpen }) {
     const [activeItem, setActiveItem] = useState("Inicio");
 
@@ -67,7 +66,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                 </Link>
             </motion.nav>
 
-            {/* Overlay para cerrar al hacer clic fuera */}
+            {/* Cerrar al hacer clic fuera */}
             {isOpen && (
                 <div onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black/50 z-40" />
             )}

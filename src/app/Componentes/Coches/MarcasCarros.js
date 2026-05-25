@@ -26,7 +26,7 @@ export default function MarcasCarros() {
         <section className="py-20 bg-radial from-gray-50 to-white overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 md:px-6">
                 
-                {/* ENCABEZADO REFINADO */}
+                {/* ENCABEZADO */}
                 <div className="text-center mb-12 space-y-2">
                     <motion.h2 
                         initial={{ opacity: 0, y: -10 }}
