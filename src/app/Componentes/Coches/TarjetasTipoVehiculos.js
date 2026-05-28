@@ -72,7 +72,7 @@ export default function TarjetasTipoVehiculo() {
                                 <Car size={20} className="text-[#f4bba4] group-hover:text-[#09092d] transition-colors duration-500" />
                             </div>
                             <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "sedan" ? "text-[#f4bba4]" : "text-[#09092d]"}`}>
-                                Autos Sedanes
+                                Autos Sedan
                             </h3>
                         </motion.div>
 
@@ -129,7 +129,7 @@ export default function TarjetasTipoVehiculo() {
                                 <Bus size={20} className="text-[#f4bba4] group-hover:text-[#09092d] transition-colors duration-500" />
                             </div>
                             <h3 className={`text-base md:text-lg font-bold transition-colors duration-300 whitespace-nowrap ${idActivo === "van" ? "text-[#f4bba4]" : "text-[#09092d]"}`}>
-                                Vans & Shuttles
+                                Vans
                             </h3>
                         </motion.div>
 

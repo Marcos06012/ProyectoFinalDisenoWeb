@@ -24,6 +24,21 @@ const itemVariants = {
 export default function PerfilUsuario() {
     const [pestañaActiva, setPestañaActiva] = useState("datos");
 
+    // Manejador para guardar los datos personales 
+    const handleGuardarDatos = (e) => {
+        e.preventDefault();
+        // Aquí procesas la actualización en tu base de datos o API
+        alert("¡Datos personales validados y guardados con éxito por el navegador!");
+    };
+
+    // Manejador para actualizar la contraseña 
+    const handleActualizarPassword = (e) => {
+        e.preventDefault();
+        // Aquí procesamos el cambio de contraseña
+        alert("¡Contraseña validada correctamente por el navegador!");
+        e.target.reset(); 
+    };
+
     return (
         <main className="min-h-screen bg-radial from-gray-50 to-white pt-28 pb-16 overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -109,7 +124,7 @@ export default function PerfilUsuario() {
                             
                             {/* SECCIÓN 1: DATOS PERSONALES */}
                             {pestañaActiva === "datos" && (
-                                <div className="space-y-6">
+                                <form onSubmit={handleGuardarDatos} className="space-y-6">
                                     <div>
                                         <h3 className="text-2xl font-black text-[#09092d] tracking-tight">Información de la Cuenta</h3>
                                         <p className="text-sm text-gray-400 font-medium">Gestiona tus datos personales y de contacto básicos.</p>
@@ -121,7 +136,14 @@ export default function PerfilUsuario() {
                                             <label className="text-xs font-bold text-gray-400 uppercase tracking-wider pl-1">Nombre Completo</label>
                                             <div className="relative">
                                                 <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                                <input type="text" defaultValue="Marcos Jared Alas Morales" className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" />
+                                                <input 
+                                                    type="text" 
+                                                    required
+                                                    pattern=".*\S.*"
+                                                    title="El nombre completo no puede quedar vacío ni contener solo espacios."
+                                                    defaultValue="Marcos Jared Alas Morales" 
+                                                    className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" 
+                                                />
                                             </div>
                                         </motion.div>
 
@@ -137,7 +159,12 @@ export default function PerfilUsuario() {
                                             <label className="text-xs font-bold text-gray-400 uppercase tracking-wider pl-1">Correo Electrónico</label>
                                             <div className="relative">
                                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                                <input type="email" defaultValue="marcos.jared@example.com" className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" />
+                                                <input 
+                                                    type="email" 
+                                                    required
+                                                    defaultValue="marcos.jared@example.com" 
+                                                    className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" 
+                                                />
                                             </div>
                                         </motion.div>
 
@@ -145,7 +172,14 @@ export default function PerfilUsuario() {
                                             <label className="text-xs font-bold text-gray-400 uppercase tracking-wider pl-1">Número de Teléfono</label>
                                             <div className="relative">
                                                 <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                                <input type="tel" defaultValue="+503 7123-4567" className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" />
+                                                <input 
+                                                    type="tel" 
+                                                    required
+                                                    pattern="^[+]*[0-9\s-]{8,15}$"
+                                                    title="Introduce un número telefónico válido (mínimo 8 dígitos)."
+                                                    defaultValue="+503 7123-4567" 
+                                                    className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" 
+                                                />
                                             </div>
                                         </motion.div>
                                     </div>
@@ -154,16 +188,23 @@ export default function PerfilUsuario() {
                                         <label className="text-xs font-bold text-gray-400 uppercase tracking-wider pl-1">Dirección de Residencia</label>
                                         <div className="relative">
                                             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                            <input type="text" defaultValue="Santa Tecla, La Libertad, El Salvador" className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" />
+                                            <input 
+                                                type="text" 
+                                                required
+                                                pattern=".*\S.*"
+                                                title="La dirección de residencia es obligatoria."
+                                                defaultValue="Santa Tecla, La Libertad, El Salvador" 
+                                                className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" 
+                                            />
                                         </div>
                                     </motion.div>
 
                                     <div className="pt-4 flex justify-end">
-                                        <button className="h-12 px-6 bg-[#09092d] hover:bg-[#f4bba4] text-white hover:text-[#09092d] font-bold rounded-xl shadow-md transition-all duration-300 cursor-pointer">
+                                        <button type="submit" className="h-12 px-6 bg-[#09092d] hover:bg-[#f4bba4] text-white hover:text-[#09092d] font-bold rounded-xl shadow-md transition-all duration-300 cursor-pointer">
                                             Guardar Cambios
                                         </button>
                                     </div>
-                                </div>
+                                </form>
                             )}
 
                             {/* SECCIÓN 2: HISTORIAL DE RESERVAS */}
@@ -213,9 +254,9 @@ export default function PerfilUsuario() {
                                 </div>
                             )}
 
-                            {/* PASSWORD */}
+                            {/* SECCIÓN 3: CONTRASEÑA */}
                             {pestañaActiva === "seguridad" && (
-                                <div className="space-y-6">
+                                <form onSubmit={handleActualizarPassword} className="space-y-6">
                                     <div>
                                         <h3 className="text-2xl font-black text-[#09092d] tracking-tight">Seguridad y Acceso</h3>
                                         <p className="text-sm text-gray-400 font-medium">Actualiza tus credenciales para mantener la cuenta protegida.</p>
@@ -227,7 +268,12 @@ export default function PerfilUsuario() {
                                             <label className="text-xs font-bold text-gray-400 uppercase tracking-wider pl-1">Contraseña Actual</label>
                                             <div className="relative">
                                                 <KeyRound className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                                <input type="password" placeholder="..........." className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" />
+                                                <input 
+                                                    type="password" 
+                                                    required
+                                                    placeholder="..........." 
+                                                    className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" 
+                                                />
                                             </div>
                                         </motion.div>
 
@@ -235,17 +281,23 @@ export default function PerfilUsuario() {
                                             <label className="text-xs font-bold text-gray-400 uppercase tracking-wider pl-1">Nueva Contraseña</label>
                                             <div className="relative">
                                                 <KeyRound className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                                <input type="password" placeholder="Mínimo 8 caracteres" className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" />
+                                                <input 
+                                                    type="password" 
+                                                    required
+                                                    minLength={8}
+                                                    placeholder="Mínimo 8 caracteres" 
+                                                    className="w-full h-12 pl-11 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-gray-700 font-medium focus:outline-hidden focus:border-[#f4bba4] focus:bg-white transition-all" 
+                                                />
                                             </div>
                                         </motion.div>
                                     </div>
 
                                     <div className="pt-4 flex justify-end">
-                                        <button className="h-12 px-6 bg-[#09092d] hover:bg-[#f4bba4] text-white hover:text-[#09092d] font-bold rounded-xl shadow-md transition-all duration-300 cursor-pointer">
+                                        <button type="submit" className="h-12 px-6 bg-[#09092d] hover:bg-[#f4bba4] text-white hover:text-[#09092d] font-bold rounded-xl shadow-md transition-all duration-300 cursor-pointer">
                                             Actualizar Contraseña
                                         </button>
                                     </div>
-                                </div>
+                                </form>
                             )}
 
                         </motion.div>

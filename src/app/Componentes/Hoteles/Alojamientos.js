@@ -62,7 +62,7 @@ export default function GaleriaAlojamientos() {
                     />
                 </div>
 
-                {/* Grid Asimétrico (Bento Grid) */}
+                {/* Grid Asimétrico */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {ALOJAMIENTOS.map((item, index) => (
                         <motion.div

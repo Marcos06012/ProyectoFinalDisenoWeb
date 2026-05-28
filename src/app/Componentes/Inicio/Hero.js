@@ -19,9 +19,8 @@ const itemVariants = {
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen lg:min-h-screen pt-24 pb-12 flex flex-col items-center justify-center text-center overflow-hidden bg-[#09092d]">
+        <section className="relative min-h-screen pt-24 pb-12 flex flex-col items-center justify-center text-center overflow-hidden bg-[#09092d]">
 
-            {/* IMAGEN DE FONDO */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -39,9 +38,8 @@ export default function Hero() {
                 />
             </motion.div>
 
-            <div className="absolute inset-0 bg-linear-to-b from-[#09092d]/80 via-[#09092d]/60 to-transparent z-10"></div>
+            <div className="absolute inset-0 bg-linear-to-b from-[#09092d] via-[#09092d]/50 to-[#09092d] z-10"></div>
 
-            {/* CONTENIDO PRINCIPAL */}
             <motion.div
                 initial="hidden"
                 animate="visible"
@@ -62,7 +60,6 @@ export default function Hero() {
                     Tu próxima aventura comienza aquí. Encuentra vuelos, hoteles y traslados al mejor precio.
                 </motion.p>
 
-                {/* BARRA DE BÚSQUEDA INTEGRADA EN EL FLUJO */}
                 <motion.div
                     variants={itemVariants}
                     className="w-full max-w-2xl"
